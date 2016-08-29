@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface Config {
 
-    AppStack getStack();
+    AppStack stack();
 
-    Collection<String> getKeys();
+    Collection<String> keys();
 
     String get(String key);
 

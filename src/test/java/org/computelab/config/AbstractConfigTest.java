@@ -38,11 +38,11 @@ public class AbstractConfigTest {
 
         testConfig = new AbstractConfig() {
             @Override
-            public AppStack getStack() {
+            public AppStack stack() {
                 return AppStack.DEVELOP;
             }
             @Override
-            public Collection<String> getKeys() {
+            public Collection<String> keys() {
                 return configMap.keySet();
             }
             @Override
@@ -55,9 +55,9 @@ public class AbstractConfigTest {
     @Test
     public void test() {
 
-        assertEquals(AppStack.DEVELOP, testConfig.getStack());
+        assertEquals(AppStack.DEVELOP, testConfig.stack());
 
-        Collection<String> keys = testConfig.getKeys();
+        Collection<String> keys = testConfig.keys();
         assertNotNull(keys);
         assertEquals("Duplicate keys 'long' should be deduped.", 12, keys.size());
         assertTrue(keys.contains("key"));

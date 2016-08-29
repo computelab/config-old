@@ -16,7 +16,7 @@ final class SimpleConfig extends AbstractLocalStackConfig {
     }
 
     @Override
-    public Collection<String> getKeys() {
+    public Collection<String> keys() {
         return Collections.unmodifiableSet(configMap.keySet());
     }
 

@@ -27,8 +27,8 @@ public final class PropertiesConfig extends AbstractLocalStackConfig {
     }
 
     @Override
-    public Collection<String> getKeys() {
-        return config.getKeys();
+    public Collection<String> keys() {
+        return config.keys();
     }
 
     @Override

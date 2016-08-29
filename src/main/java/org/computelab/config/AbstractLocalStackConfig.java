@@ -6,7 +6,7 @@ package org.computelab.config;
 abstract class AbstractLocalStackConfig extends AbstractConfig {
 
     @Override
-    public final AppStack getStack() {
+    public final AppStack stack() {
         final String value = getValue(ConfigKey.STACK);
         if (value == null) {
             return AppStack.LOCAL;
