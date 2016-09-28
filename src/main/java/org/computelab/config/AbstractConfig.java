@@ -40,19 +40,27 @@ abstract class AbstractConfig implements Config {
 
     @Override
     public final boolean getBoolean(String key) {
-        String value = get(key);
-        return Boolean.parseBoolean(value);
+        return getTypedValue(key, Boolean::parseBoolean);
     }
 
     @Override
     public final int getInt(String key) {
-        String value = get(key);
-        return Integer.parseInt(value);
+        return getTypedValue(key, Integer::parseInt);
     }
 
     @Override
     public final long getLong(String key) {
-        String value = get(key);
-        return Long.parseLong(value);
+        return getTypedValue(key, Long::parseLong);
+    }
+
+    @FunctionalInterface
+    private static interface Parse<T> {
+        T apply(String value);
+    }
+
+    private <T> T getTypedValue(String key, Parse<T> parse) {
+        checkNotNull(key);
+        final String value = get(key);
+        return parse.apply(value);
     }
 }
