@@ -18,8 +18,8 @@ public class PropertiesConfigTest {
             Properties properties = new Properties();
             properties.load(inputStream);
             Config config = new PropertiesConfig(properties);
-            assertNotNull(config.getKeys());
-            assertEquals(9, config.getKeys().size());
+            assertNotNull(config.keys());
+            assertEquals(9, config.keys().size());
             assertEquals("valueB", config.get("key.b"));
             assertEquals(52, config.getLong("key.e"));
             assertTrue(config.getBoolean("key.f"));
@@ -35,8 +35,8 @@ public class PropertiesConfigTest {
             Properties properties = new Properties();
             properties.load(inputStream);
             Config config = new PropertiesConfig(sourceConfig, properties);
-            assertNotNull(config.getKeys());
-            assertEquals(10, config.getKeys().size());
+            assertNotNull(config.keys());
+            assertEquals(10, config.keys().size());
             assertEquals("Should be carried over from the source.",
                     "sourceValue", config.get("source.key"));
             assertEquals("Should be overwritten.", "valueB", config.get("key.b"));

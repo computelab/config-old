@@ -12,10 +12,10 @@ public class SimpleConfigTest {
     @Test
     public void testEmpty() {
         Config config = new SimpleConfig();
-        assertNotNull(config.getKeys());
-        assertEquals(0, config.getKeys().size());
+        assertNotNull(config.keys());
+        assertEquals(0, config.keys().size());
         assertNull(config.get("test.key"));
-        assertEquals(AppStack.LOCAL, config.getStack());
+        assertEquals(AppStack.LOCAL, config.stack());
     }
 
     @Test
@@ -26,7 +26,7 @@ public class SimpleConfigTest {
         assertEquals("true", config.get(key));
         assertTrue(config.getBoolean(key));
         config.put(ConfigKey.STACK, "develop");
-        assertEquals(AppStack.DEVELOP, config.getStack());
-        assertEquals(2, config.getKeys().size());
+        assertEquals(AppStack.DEVELOP, config.stack());
+        assertEquals(2, config.keys().size());
     }
 }

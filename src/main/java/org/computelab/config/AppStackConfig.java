@@ -19,7 +19,7 @@ public final class AppStackConfig extends AbstractConfig {
         SimpleConfig simpleConfig = new SimpleConfig();
         config = simpleConfig;
         // First take keys that are not stack-specific
-        final Collection<String> keys = sourceConfig.getKeys();
+        final Collection<String> keys = sourceConfig.keys();
         for (String key : keys) {
             if (!isStackPrefixed(key)) {
                 simpleConfig.put(key, sourceConfig.get(key));
@@ -38,12 +38,12 @@ public final class AppStackConfig extends AbstractConfig {
     }
 
     @Override
-    public Collection<String> getKeys() {
-        return config.getKeys();
+    public Collection<String> keys() {
+        return config.keys();
     }
 
     @Override
-    public AppStack getStack() {
+    public AppStack stack() {
         return stack;
     }
 

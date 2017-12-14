@@ -36,10 +36,10 @@ final class ConfigFactory {
      */
     static Config create(final Config sourceConfig, final Config additionalConfig) {
         final SimpleConfig simpleConfig = new SimpleConfig();
-        for (String key : sourceConfig.getKeys()) {
+        for (String key : sourceConfig.keys()) {
             simpleConfig.put(key, sourceConfig.get(key));
         }
-        for (String key : additionalConfig.getKeys()) {
+        for (String key : additionalConfig.keys()) {
             simpleConfig.put(key, additionalConfig.get(key));
         }
         return simpleConfig;
@@ -51,7 +51,7 @@ final class ConfigFactory {
      */
     static Config create(Config sourceConfig, ConfigEntryReader<String> reader, Collection<String> keys) {
         final Set<String> combinedKeys = new HashSet<String>(keys);
-        final Collection<String> moreKeys = sourceConfig.getKeys();
+        final Collection<String> moreKeys = sourceConfig.keys();
         for (String key : moreKeys) {
             combinedKeys.add(key);
         }

@@ -32,8 +32,8 @@ public class ConfigFactoryTest {
         };
         Config config = ConfigFactory.create(reader, Arrays.asList("a", "b"));
         assertNotNull(config);
-        assertNotNull(config.getKeys());
-        assertEquals(1, config.getKeys().size());
+        assertNotNull(config.keys());
+        assertEquals(1, config.keys().size());
         assertEquals("1", config.get("a"));
         assertNull(config.get("b"));
     }
@@ -48,8 +48,8 @@ public class ConfigFactoryTest {
         additionalConfig.put("c", "9");
         Config config = ConfigFactory.create(sourceConfig, additionalConfig);
         assertNotNull(config);
-        assertNotNull(config.getKeys());
-        assertEquals(3, config.getKeys().size());
+        assertNotNull(config.keys());
+        assertEquals(3, config.keys().size());
         assertEquals("1", config.get("a"));
         assertEquals("8", config.get("b"));
         assertEquals("9", config.get("c"));
@@ -93,8 +93,8 @@ public class ConfigFactoryTest {
         };
         Config config = ConfigFactory.create(sourceConfig, reader, Arrays.asList("a", "b", "c", "d"));
         assertNotNull(config);
-        assertNotNull(config.getKeys());
-        assertEquals(3, config.getKeys().size());
+        assertNotNull(config.keys());
+        assertEquals(3, config.keys().size());
         assertEquals("1", config.get("a"));
         assertEquals("8", config.get("b"));
         assertEquals("9", config.get("c"));

@@ -13,7 +13,7 @@ public class SystemEnvConfigTest {
     @Test
     public void test() {
         Config config = new SystemEnvConfig(Arrays.asList("home"));
-        assertEquals(1, config.getKeys().size());
+        assertEquals(1, config.keys().size());
         assertNotNull(config.get("home"));
         assertNull(config.get("some.fake.key"));
     }

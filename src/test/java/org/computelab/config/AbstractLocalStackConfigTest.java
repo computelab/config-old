@@ -12,7 +12,7 @@ public class AbstractLocalStackConfigTest {
     public void test() {
         Config testConfig = new AbstractLocalStackConfig() {
             @Override
-            public Collection<String> getKeys() {
+            public Collection<String> keys() {
                 return null;
             }
             @Override
@@ -20,6 +20,6 @@ public class AbstractLocalStackConfigTest {
                 return null;
             }
         };
-        assertEquals("Default stack is LOCAL.", AppStack.LOCAL, testConfig.getStack());
+        assertEquals("Default stack is LOCAL.", AppStack.LOCAL, testConfig.stack());
     }
 }
